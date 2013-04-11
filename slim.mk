@@ -20,12 +20,15 @@ $(call inherit-product, vendor/slim/config/gsm.mk)
 # Release name
 PRODUCT_RELEASE_NAME := p3110
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1024
-TARGET_SCREEN_WIDTH := 600
+# Boot animation hack
+TARGET_BOOTANIMATION_NAME := horizontal-1024x600
 
 # Inherit some common Slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_tablet_wifionly.mk)
+
+# Boot Animation
+PRODUCT_COPY_FILES +=  \
+vendor/slim/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/p3110/full_p3110.mk)
