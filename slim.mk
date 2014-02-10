@@ -17,6 +17,10 @@
 # Release name
 PRODUCT_RELEASE_NAME := p3110
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1024
+TARGET_SCREEN_WIDTH := 600
+
 # Inherit some common Slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_tablet_wifionly.mk)
 
