@@ -30,7 +30,7 @@ $(call inherit-product, vendor/slim/config/common_full_tablet_wifionly.mk)
 $(call inherit-product, device/samsung/p3110/full_p3110.mk)
 
 # SlimRoms specific overlay
-DEVICE_PACKAGE_OVERLAYS += device/samsung/p3100/overlay/slim-common
+DEVICE_PACKAGE_OVERLAYS += device/samsung/espresso-common/overlay/slim-common
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := p3110
