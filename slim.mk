@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2014 SlimRoms Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,21 +15,15 @@
 # limitations under the License.
 #
 
-## Specify phone tech before including full_phone
-$(call inherit-product, vendor/slim/config/gsm.mk)
-
 # Release name
 PRODUCT_RELEASE_NAME := p3110
 
-# Boot animation hack
-TARGET_BOOTANIMATION_NAME := horizontal-1024x600
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1024
+TARGET_SCREEN_WIDTH := 600
 
 # Inherit some common Slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_tablet_wifionly.mk)
-
-# Boot Animation
-PRODUCT_COPY_FILES +=  \
-vendor/slim/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/p3110/full_p3110.mk)
@@ -41,4 +36,8 @@ PRODUCT_MODEL := GT-P3110
 PRODUCT_MANUFACTURER := samsung
 
 #Set build fingerprint / ID / Prduct Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=espressowifixx TARGET_DEVICE=espressowifi BUILD_FINGERPRINT=samsung/espressowifixx/espressowifi:4.0.3/IML74K/P3110XWALD2:user/release-keys PRIVATE_BUILD_DESC="espressowifixx-user 4.0.3 IML74K P3110XWALD2 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=espressowifixx \
+    TARGET_DEVICE=espressowifi \
+    BUILD_FINGERPRINT="samsung/espressowifixx/espressowifi:4.2.2/JDQ39/P3110XXDMH1:user/release-keys" \
+    PRIVATE_BUILD_DESC="espressowifixx-user 4.2.2 JDQ39 P3110XXDMH1 release-keys"

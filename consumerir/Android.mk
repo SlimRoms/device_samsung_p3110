@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2013 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,16 +11,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# Include p31xx BoardConfigCommon
--include device/samsung/p3100/BoardConfigCommon.mk
+# HAL module implementation stored in
+# hw/<POWERS_HARDWARE_MODULE_ID>.<ro.hardware>.so
 
-TARGET_BOARD_INFO_FILE := device/samsung/p3110/board-info.txt
+LOCAL_PATH := $(call my-dir)
 
-# Inline kernel building
-TARGET_KERNEL_SOURCE := kernel/samsung/espresso10
-TARGET_KERNEL_CONFIG := slim_p3110_defconfig
+include $(CLEAR_VARS)
 
-# assert
-TARGET_OTA_ASSERT_DEVICE := p3110,GT-P3110,p3113,GT-P3113,espressowifi,espressowifixx
+LOCAL_MODULE := consumerir.piranha
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_SRC_FILES := consumerir.c
+LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
